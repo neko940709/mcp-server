@@ -112,9 +112,27 @@
 ## 部署
 >  火山引擎 SQL Server 服务接入地址：https://www.volcengine.com/docs/6899
 ```json
-{}
+{
+  "mcpServers": {
+    "rds_mssql": {
+      "command": "uvx",
+      "args": [
+        "--from",
+        "git+https://github.com/volcengine/mcp-server.git#subdirectory=server/mcp_server_rds_mssql",
+        "mcp-server-rds-mssql"
+      ],
+      "transportType": "stdio",
+      "env": {
+        "VOLCENGINE_ENDPOINT": "火山引擎endpoint",
+        "VOLCENGINE_REGION": "火山引擎资源region",
+        "VOLCENGINE_ACCESS_KEY": "火山引擎账号ACCESSKEY",
+        "VOLCENGINE_SECRET_KEY": "火山引擎账号SECRETKEY",
+        "MCP_SERVER_PORT": "MCP server监听端口"
+      }
+    }
+  }
+}
 ```
-当前支持的Region: []
 
 
 ---
